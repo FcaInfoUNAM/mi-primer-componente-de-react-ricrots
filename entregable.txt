@@ -1,0 +1,15 @@
+Pregunta 2.2: ¿De dónde sale la etiqueta Navigation?
+La etiqueta <Navigation /> sale de la importación del componente Navigation, el cual está definido en el archivo Navigation.jsx. Se importa al inicio de App.jsx utilizando la sintaxis:
+import { Navigation } from './Navigation';
+
+Pregunta 2.3: Explica cómo se recibieron esos parámetros (srcImg, alt) en Navigation.jsx
+Los parámetros srcImg y alt se recibieron en el componente Navigation a través de las "props" (propiedades). En App.jsx, cuando usamos el componente Navigation, le pasamos datos como atributos:
+<Navigation srcImg={logo} alt="Logo"/>
+En Navigation.jsx, la función del componente (export function Navigation({srcImg, alt}){...}) recibe estas props como un objeto. Al usar la sintaxis de desestructuración de objetos ({srcImg, alt}) directamente en los parámetros de la función, extraemos los valores de las propiedades 'srcImg' y 'alt' de ese objeto props en variables individuales con esos mismos nombres.
+
+Pregunta 2.6: Explica dónde se importan los archivos css, las imágenes y cómo es que se importa un componente en App.jsx
+- Archivos CSS: Se importan usando la sintaxis `import './ruta/al/archivo.css';`. En App.jsx, se importa el archivo principal de estilos con `import './App.css';`.
+
+- Imágenes (y otros assets): Se importan utilizando la sintaxis `import nombreVariable from './ruta/a/la/imagen.extension';`. La variable importada (e.g., `logo`) contiene la referencia al asset y se usa típicamente en el atributo `src` de una etiqueta `<img>`. En App.jsx, se importa el logo con `import logo from './logo.svg';`.
+
+- Componentes: Un componente definido en otro archivo (e.g., Navigation.jsx, Grid.jsx) se importa usando la sintaxis `import { NombreDelComponente } from './ruta/al/archivoDelComponente';` si el componente fue exportado con `export function NombreDelComponente` (como en el caso de Navigation y Grid), o `import NombreDelComponente from './ruta/al/archivoDelComponente';` si fue exportado con `export default NombreDelComponente`. En App.jsx, Navigation se importa con `import { Navigation } from './Navigation';` y Grid se importa con `import { Grid } from './Grid';`.
